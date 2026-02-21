@@ -1,0 +1,455 @@
+
+```html
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Uzair ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animated Stars Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* Floating Hearts */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp 10s infinite linear;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Birthday Card */
+        .card {
+            background: linear-gradient(145deg, #fff 0%, #fdfbfb 100%);
+            border-radius: 30px;
+            box-shadow: 
+                0 30px 100px rgba(0,0,0,0.4),
+                0 0 0 1px rgba(255,255,255,0.1) inset;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Decorative Top Border */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #e84393, #fd79a8, #e84393);
+        }
+
+        /* Photo Section */
+        .photo-section {
+            text-align: center;
+            padding: 50px 40px 30px;
+            background: linear-gradient(180deg, #fff5f5 0%, #fff 100%);
+            position: relative;
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+
+        .photo-ring {
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border: 2px dashed #e84393;
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e84393, #fd79a8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border: 5px solid #fff;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Title */
+        .title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .title h1 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 4rem;
+            color: #2d3436;
+            line-height: 1.2;
+        }
+
+        .title p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #636e72;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* Content */
+        .content {
+            padding: 40px;
+        }
+
+        /* Message Box */
+        .message-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(232, 67, 147, 0.1);
+            border: 1px solid #ffeaa7;
+            position: relative;
+        }
+
+        .message-box::before {
+            content: '❤️';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .message-box h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.2rem;
+            color: #e84393;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .message-text {
+            font-size: 1.3rem;
+            line-height: 2.2;
+            color: #2d3436;
+            text-align: justify;
+            white-space: pre-line;
+        }
+
+        .message-text p {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Signature */
+        .signature {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2rem;
+            color: #e84393;
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(180deg, #fff 0%, #fdfbfb 100%);
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer p {
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        /* Celebration Button */
+        .celebrate-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #e84393, #fd79a8);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(232, 67, 147, 0.4);
+        }
+
+        .celebrate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(232, 67, 147, 0.5);
+        }
+
+        /* Surprise Overlay */
+        .surprise-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .surprise-card {
+            background: linear-gradient(145deg, #fff 0%, #fff5f5 100%);
+            padding: 60px 50px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 500px;
+            animation: scaleIn 0.5s;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .surprise-card h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.5rem;
+            color: #e84393;
+            margin-bottom: 20px;
+        }
+
+        .surprise-card p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #636e72;
+            margin-bottom: 30px;
+        }
+
+        .surprise-emoji {
+            font-size: 5rem;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .close-btn {
+            background: linear-gradient(135deg, #636e72, #2d3436);
+            color: #fff;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            z-index: 999;
+            animation: confettiFall 4s linear forwards;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { margin: 20px auto; padding: 0 15px; }
+            .photo-section { padding: 40px 20px 25px; }
+            .photo-frame { width: 160px; height: 160px; }
+            .title h1 { font-size: 3rem; }
+            .content { padding: 25px; }
+            .message-box { padding: 30px 20px; }
+            .message-text { font-size: 1.15rem; line-height: 2; }
+            .message-box h2 { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            .title h1 { font-size: 2.5rem; }
+            .message-text { font-size: 1.05rem; }
+            .signature { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Effects -->
+    <div class="stars" id="stars"></div>
+    <div class="floating-hearts" id="hearts"></div>
+
+    <!-- Main Card -->
+    <div class="container">
+        <div class="card">
+            <!-- Photo Section -->
+            <div class="photo-section">
+                <div class="photo-frame">
+                    <div class="photo-ring"></div>
+                    <!-- Replace 'photo.jpg' with your photo filename -->
+<img src="pic1.jpg.jpeg" 
+     alt="Uzair" 
+     class="photo"
+     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\"photo-placeholder\">👨</div>               </div>
+                <div class="title">
+                    <h1>Happy Birthday</h1>
+                    <p>Uzair meri jaan mery chaand ❤️</p>
+                </div>
+            </div>
+
+            <!-- Message Content -->
+            <div class="content">
+                <div class="message-box">
+                    <h2>💕 A Very Happy Birthday  💕</h2>
+                    
+                    <div class="message-text">
+<p>Aaj ka din mere liye bohat special hai, kyun ke aaj woh din hai jab meri zindagi ka sab se qeemti insaan is duniya mein aaya . Uzair, main shayad alfaaz mein kabhi perfectly express na kar sakun ke tum mere liye kya ho, lekin phir bhi aaj dil se sab kuch kehna chahti hoon.</p>
+
+<p>In 3 saalon mein maine tumhare liye bohat sacrifice kiya, bohat sabr kiya, bohat wait kiya. Bohat raaton tak royi hoon, tarapti rahi hoon, sirf is liye kyun ke tum meri zindagi ka hissa ho aur main tumhe khona nahi chahti thi.</p>
+
+<p>Han, hamari bohat laraaiyan bhi hui hain, ghaltiyan bhi hui hain, shayad meri taraf se bhi bohat si baatein aisi hui jo tumhe hurt karti rahi. Us sab ke liye aaj main dil se sorry kehna chahti hoon.</p>
+
+<p>Uzair, tum meri strength ho, meri power ho, mera sukoon ho. Tum mere liye sab kuch ho. Tum sab se barh kar ho, sab se azeez ho. Main jab bhi tootne lagti hoon, mujhe sirf tum yaad aate ho, ma hurt hoti hu mujhy tum nazr aty ho tum mjhy hurt bh karo to m tumse hi pyar karti hu  or mazeed karti hun pehly se ziyada krti hu kabh nahi chahti k tum mujhse dooor jao shayd kabhi mai yeh bardaasht kar hi na paonn mery lye sukoon se bhi barh kar ho bas kuch htumse jo mujhy puri dunya mai milna na mumkin hai esa lagta ha tm na mily mujhy to m phr kuch nh mai phir shyd zinda to rahu lkkn wo dil m ek jaga jaga jo tumhri hai wo kabhi bhar nahi sakti esa nilkul nahi k tum se barh k ma ksi ko chahny ka sochu bh esa socchu to mar jao esa sochu to mujhy mout ajae mujhy pata nahi tum mujhy milo ya na par tumse juri har cheez mery liye ta qayamt zinda rahegi tumse pyar tumse baty tumhy dekhna shahyd kabh bulaon na lekin dil tum p waqf hogya meri mohbt bh tum p waqf hogye</p>
+
+<p>Shayad main perfect nahi hoon, lekin mera pyaar tumhare liye hamesha sachha tha, hai aur rahega.</p>
+
+<p>Main bas itna chahti hoon ke hum dono apni purani baaton ko peeche chhor kar ek nayi shuruat karein. Main tumhe apni zindagi mein hamesha ke liye chahti hoon.</p>
+
+<p>Main chahti hoon ke har birthday tumhara main celebrate karun, har khushi mein tumhare saath hoon, har mushkil mein tumhara haath pakar kar khari rahun.</p>
+
+<p>Aaj ke din main Allah se sirf ye dua karti hoon ke tumhe har khushi mile, har kamyabi mile, aur tumhari zindagi mein kabhi koi gham na aaye. Aur agar kabhi gham aaye bhi, to main tumhare saath hoon — hamesha.</p>
+
+<p>Happy Birthday once again meri jaan. 🎂❤️</p>
+
+<p>Please mujhe maaf kar do agar kabhi dil dukhaya ho. I really, really want you in my life. Tum ho to sab kuch hai, tum nahi to kuch bhi nahi.</p>
+
+<p>Hamesha k lye tmhri ho k reh gye hu m mjhy bht pyar h tmse plz me mine i really love you more than anything tm se har khushi har sukh sary sukoon h Allah tmhy bht lambi sehat wli zindgi de humesha khushiya hi naseeb kre gamo se door door tk koi rishta na hoo m chahti hu humesha tmhy hasta hua dekhu tm hasty ho to m khush hoti hun tum ro udaas ho to mjhy bh kuch acha nh lgta m buri hu ma maanti hun par bht btameezi krti hu or hurt bh behad krti ek bat ko bar bar krk lkn bh thak gye akhir kxh bh h mera thikana tm ho sirf mery pas bs ek rasta ha meri ek hi manzil h wo hai srf or srf mera chaand mera uzair mujhe maf krdoo plzz am so sorrry ❤️</p>
+                    </div>
+
+                    <div class="signature">
+                        Hamesha tumhari hun or i hope k tum mery ho  💕
+                    </div>
+                </div>
+
+                <!-- Celebration Button -->
+                <button class="celebrate-btn" onclick="celebrate()">
+                    🎉 Enjoy your day my Love 🎉
+                </button>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>Made with lots of love ❤️ for my chand mery sb kuch  mery  Uzair  </p> 
+            </div>
+        </div>
+    </div>
+
+    <!-- Surprise Overlay -->
+    <div class="surprise-overlay" id="surprise">
+        <div class="surprise-card">
+           
